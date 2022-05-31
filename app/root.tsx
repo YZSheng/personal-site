@@ -8,6 +8,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import styles from "./styles/app.css";
+import WrappedWithNav from "./wrappedWithNav";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -27,7 +28,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <WrappedWithNav>
+          <Outlet />
+        </WrappedWithNav>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
