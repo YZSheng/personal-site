@@ -617,6 +617,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 3rem;
   }
 
+  .sm\:mt-20 {
+    margin-top: 5rem;
+  }
+
   .sm\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -630,5 +634,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:mt-16 {
     margin-top: 4rem;
+  }
+
+  .md\:mt-24 {
+    margin-top: 6rem;
   }
 }
