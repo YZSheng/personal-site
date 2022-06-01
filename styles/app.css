@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ios-full-height {
+  min-height: -webkit-fill-available;
+}
