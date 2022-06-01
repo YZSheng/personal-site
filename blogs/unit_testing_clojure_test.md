@@ -6,7 +6,7 @@ As I'm digging deeper into Clojure development and ecosystem, here are some of m
 
 ## Testing code with side effect
 
-I was earlier working on a project where I fire outbound http calls using [clj-http](https://github.com/dakrone/clj-http) library. While I was writing unit test, I wasn't sure how to do it. I have pushed the side effect stuff all the way to the boundary of the system, where everything before that / inside is pure. just passing values around. But how should I test a function that takes some value then fires a request?
+I was earlier working on a project where I fire outbound http calls using [clj-http](https://github.com/dakrone/clj-http) library. While I was writing unit test, I wasn't sure how to do it. I have pushed the side effect stuff all the way to the boundary of the system, where everything before that / inside is pure, just passing values around. But how should I test a function that takes some value then fires a request?
 
 ```clojure
 (defn save-todo [[todo api-token]]
