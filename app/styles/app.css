@@ -524,6 +524,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -546,6 +550,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-col {
   flex-direction: column;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .border-t {
@@ -599,6 +607,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
 .ios-full-height {
   min-height: -webkit-fill-available;
 }
@@ -617,9 +630,18 @@ body {
     margin-top: 5rem;
   }
 
+  .sm\:mr-6 {
+    margin-right: 1.5rem;
+  }
+
   .sm\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+  .sm\:no-underline {
+    -webkit-text-decoration-line: none;
+            text-decoration-line: none;
   }
 }
 
