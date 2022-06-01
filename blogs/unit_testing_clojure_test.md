@@ -27,7 +27,7 @@ So how should I verify that `client/post` has been called with correct headers, 
         (is (= expected (save-todo [todo api-token])))))))
 ```
 
-Here we redefine the `post` call to return a vector of all its arguments, then we simply assert on the vec. Sweet! What's missing here are things like how many times it has been called, and order of each call. We can either hand roll the feature (shouldn't be that hard I guess? with a `atom`?) or use a (library)[https://github.com/unrelentingtech/clj-http-fake].
+Here we redefine the `post` call to return a vector of all its arguments, then we simply assert on the vec. Sweet! What's missing here are things like how many times it has been called, and order of each call. We can either hand roll the feature (shouldn't be that hard I guess? with a `atom`?) or use a [library](https://github.com/unrelentingtech/clj-http-fake).
 
 ## Test Driven Development (TDD)
 
