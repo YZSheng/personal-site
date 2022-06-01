@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 export default function Index() {
   return (
     <div>
@@ -10,9 +12,13 @@ export default function Index() {
         </span>
         .
       </p>
-      <p>
+      <p className="my-4">
         I am a Software Engineer based in Singapore. I enjoy writing client
         facing apps on web, iOS and Android. I'm also facinated by Clojure.
+      </p>
+      <p className="my-4">
+        I sometimes write about my learnings and thoughts on my{" "}
+        <Link to="blog" className="font-semibold underline">blog</Link>.
       </p>
     </div>
   );
