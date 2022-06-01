@@ -512,8 +512,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
-.mr-6 {
-  margin-right: 1.5rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .mt-8 {
@@ -522,10 +522,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-4 {
   margin-bottom: 1rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
 }
 
 .inline-block {
@@ -552,10 +548,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-direction: column;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .border-t {
   border-top-width: 1px;
 }
@@ -570,14 +562,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.75rem;
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .text-sm {
@@ -612,8 +604,10 @@ Ensure the default browser behavior of the `hidden` attribute.
           text-decoration-line: underline;
 }
 
-.ios-full-height {
-  min-height: -webkit-fill-available;
+@media (max-width: 600px) {
+  .ios-full-height {
+    min-height: -webkit-fill-available;
+  }
 }
 
 body {
@@ -626,12 +620,12 @@ body {
 }
 
 @media (min-width: 640px) {
-  .sm\:mt-20 {
-    margin-top: 5rem;
-  }
-
   .sm\:mr-6 {
     margin-right: 1.5rem;
+  }
+
+  .sm\:mt-20 {
+    margin-top: 5rem;
   }
 
   .sm\:px-16 {

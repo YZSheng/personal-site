@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.ios-full-height {
-  min-height: -webkit-fill-available;
+@media (max-width: 600px) {
+  .ios-full-height {
+    min-height: -webkit-fill-available;
+  }
 }
 
 body {
