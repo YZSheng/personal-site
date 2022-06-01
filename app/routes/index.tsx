@@ -1,6 +1,6 @@
 export default function Index() {
   return (
-    <>
+    <div className="sm:mt-12 md:mt-16">
       <h1 className="text-2xl font-bold">Hi, I'm Sheng Yunzhou.</h1>
       <p className="my-4">
         Most people call me YZ{" "}
@@ -14,6 +14,6 @@ export default function Index() {
         I am a Software Engineer based in Singapore. I enjoy writing client
         facing apps on web, iOS and Android. I'm also facinated by Clojure.
       </p>
-    </>
+    </div>
   );
 }
