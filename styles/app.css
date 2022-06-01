@@ -5,3 +5,7 @@
 .ios-full-height {
   min-height: -webkit-fill-available;
 }
+
+body {
+  background: url('/img/so-white.png') repeat;
+}
