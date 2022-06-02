@@ -1,7 +1,7 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import invariant from "tiny-invariant";
 
-export const getSupabase = () => {
+const getSupabase = (): SupabaseClient => {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
   invariant(supabaseUrl);
@@ -9,3 +9,6 @@ export const getSupabase = () => {
   return createClient(supabaseUrl, supabaseAnonKey);
 };
 
+const supabase = getSupabase();
+
+export default supabase;

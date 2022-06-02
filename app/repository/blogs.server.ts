@@ -1,10 +1,10 @@
-import { getSupabase } from "./supabase.server";
+import supabase from "./supabase.server";
 
 // TODO Add ORM
 export const findAllBlogPosts = async () => {
-  return await getSupabase().from("Blog").select("id, slug, title");
+  return await supabase.from("Blog").select("id, slug, title");
 };
 
 export const findOneBlogPost = async (slug: string) => {
-  return await getSupabase().from("Blog").select("*").eq("slug", slug).single();
+  return await supabase.from("Blog").select("*").eq("slug", slug).single();
 };
