@@ -6,7 +6,6 @@ type LoaderData = { blogTitles: BlogPost[] };
 
 export const loader: LoaderFunction = async () => {
   const blogTitles = await getRecentBlogTitles();
-  await getRecentBlogTitles();
   return json<LoaderData>({ blogTitles });
 };
 
