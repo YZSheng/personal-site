@@ -1,4 +1,4 @@
-import fs from "fs";
+import { findAllBlogPosts, findOneBlogPost } from "~/repository/blogs.server";
 import { parseMarkdownWithHighlight } from "~/utils/markdown.server";
 
 type HTMLString = string;
@@ -9,27 +9,16 @@ export type BlogPost = {
   modifiedAt?: Date;
   content?: HTMLString;
   title: string;
+  slug: string;
 };
 
-const blogs: BlogPost[] = [
-  {
-    id: "clojure_test_for_jest_junit",
-    title: "Translation of clojure.test to JavaScript / Java developers",
-  },
-  {
-    id: "unit_testing_clojure_test",
-    title: "Unit Testing in Clojure",
-  },
-];
-
-export const getParsedBlogById = async (id: string): Promise<HTMLString> => {
-  const file = await fs.promises.readFile(`./blogs/${id}.md`, {
-    encoding: "utf8",
-  });
-  return parseMarkdownWithHighlight(file);
+export const getParsedBlogById = async (slug: string): Promise<HTMLString> => {
+  const response = await findOneBlogPost(slug);
+  return parseMarkdownWithHighlight(response.body.content);
 };
 
 export const getRecentBlogTitles = async (): Promise<BlogPost[]> => {
-  // migrate to DB
+  const response = await findAllBlogPosts();
+  const blogs = response.data as any; // FIXME: add ORM
   return blogs;
 };

@@ -18,7 +18,7 @@ export default function Blog() {
       <ul>
         {blogTitles.map((t) => (
           <li key={t.id}>
-            <Link to={t.id} className="text-gray-800 underline block mb-2">
+            <Link to={t.slug} className="text-gray-800 underline block mb-2">
               {t.title}
             </Link>
           </li>
