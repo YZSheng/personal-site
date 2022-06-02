@@ -1,8 +1,7 @@
 import { json, LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { marked } from "marked";
 import styles from "highlight.js/styles/atom-one-dark-reasonable.css";
-import fs from "fs";
+import { getParsedBlogById } from "~/services/blogs.server";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
@@ -11,20 +10,7 @@ export function links() {
 type LoaderData = { html: string };
 
 export const loader: LoaderFunction = async () => {
-  const file = fs.readFileSync("./blogs/unit_testing_clojure_test.md", {
-    encoding: "utf8",
-  });
-  marked.setOptions({
-    highlight: function (code, lang) {
-      const hljs = require("highlight.js");
-      if (hljs.getLanguage(lang)) {
-        return hljs.highlight(lang, code).value;
-      } else {
-        return hljs.highlightAuto(code).value;
-      }
-    },
-  });
-  const html = marked.parse(file);
+  const html = getParsedBlogById();
   return json<LoaderData>({ html });
 };
 
