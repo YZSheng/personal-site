@@ -10,7 +10,7 @@ export function links() {
 type LoaderData = { html: string };
 
 export const loader: LoaderFunction = async () => {
-  const html = getParsedBlogById();
+  const html = await getParsedBlogById();
   return json<LoaderData>({ html });
 };
 
