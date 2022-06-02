@@ -19,14 +19,14 @@ export default function Menu() {
         target="_blank"
         className={menuStyle}
       >
-        Personal Github
+        Github
       </a>
       <a
         href="https://www.goodreads.com/review/list/2200405"
         target="_blank"
         className={menuStyle}
       >
-        Reading List
+        Reading
       </a>
     </div>
   );
