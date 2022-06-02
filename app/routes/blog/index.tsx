@@ -1,25 +1,29 @@
 import { json, LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
-import styles from "highlight.js/styles/atom-one-dark-reasonable.css";
-import { getParsedBlogById } from "~/services/blogs.server";
+import { Link, useLoaderData } from "@remix-run/react";
+import { BlogPost, getRecentBlogTitles } from "~/services/blogs.server";
 
-export function links() {
-  return [{ rel: "stylesheet", href: styles }];
-}
-
-type LoaderData = { html: string };
+type LoaderData = { blogTitles: BlogPost[] };
 
 export const loader: LoaderFunction = async () => {
-  const html = await getParsedBlogById();
-  return json<LoaderData>({ html });
+  const blogTitles = await getRecentBlogTitles();
+  await getRecentBlogTitles();
+  return json<LoaderData>({ blogTitles });
 };
 
 export default function Blog() {
-  const { html } = useLoaderData();
+  const { blogTitles } = useLoaderData<LoaderData>();
   return (
-    <article
-      className="prose prose-slate max-w-full"
-      dangerouslySetInnerHTML={{ __html: html }}
-    ></article>
+    <main>
+      <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
+      <ul>
+        {blogTitles.map((t) => (
+          <li key={t.id}>
+            <Link to={t.id} className="text-gray-800 underline block mb-2">
+              {t.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </main>
   );
 }
