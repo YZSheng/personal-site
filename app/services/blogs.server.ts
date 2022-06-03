@@ -18,7 +18,9 @@ export const getParsedBlogById = async (slug: string): Promise<HTMLString> => {
 };
 
 export const getRecentBlogTitles = async (): Promise<BlogPost[]> => {
+  console.time("finding all blog posts");
   const response = await findAllBlogPosts();
+  console.timeEnd("finding all blog posts");
   const blogs = response.data as any; // FIXME: add ORM
   return blogs;
 };
