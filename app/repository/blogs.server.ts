@@ -1,10 +1,18 @@
-import supabase from "./supabase.server";
+import { Blog } from "@prisma/client";
+import { prisma } from "~/db.server";
 
-// TODO Add ORM
-export const findAllBlogPosts = async () => {
-  return await supabase.from("Blog").select("id, slug, title");
+export const findAllBlogPosts = async (): Promise<
+  Pick<Blog, "id" | "slug" | "title">[]
+> => {
+  return prisma.blog.findMany({
+    select: { id: true, slug: true, title: true },
+  });
 };
 
-export const findOneBlogPost = async (slug: string) => {
-  return await supabase.from("Blog").select("*").eq("slug", slug).single();
+export const findOneBlogPost = async (slug: string): Promise<Blog | null> => {
+  return prisma.blog.findUnique({
+    where: {
+      slug,
+    },
+  });
 };

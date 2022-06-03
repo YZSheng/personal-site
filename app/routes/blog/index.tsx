@@ -1,23 +1,28 @@
+import { Blog } from "@prisma/client";
 import { json, LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { BlogPost, getRecentBlogTitles } from "~/services/blogs.server";
+import { getRecentBlogTitles } from "~/services/blogs.server";
 
-type LoaderData = { blogTitles: BlogPost[] };
+type LoaderData = { blogs: Pick<Blog, "id" | "slug" | "title">[] };
 
 export const loader: LoaderFunction = async () => {
-  const blogTitles = await getRecentBlogTitles();
-  return json<LoaderData>({ blogTitles });
+  const blogs = await getRecentBlogTitles();
+  return json<LoaderData>({ blogs });
 };
 
 export default function Blog() {
-  const { blogTitles } = useLoaderData<LoaderData>();
+  const { blogs } = useLoaderData<LoaderData>();
   return (
     <main>
       <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
       <ul>
-        {blogTitles.map((t) => (
+        {blogs.map((t) => (
           <li key={t.id}>
-            <Link prefetch="intent" to={t.slug} className="text-gray-800 underline block mb-2">
+            <Link
+              prefetch="intent"
+              to={t.slug}
+              className="text-gray-800 underline block mb-2"
+            >
               {t.title}
             </Link>
           </li>
