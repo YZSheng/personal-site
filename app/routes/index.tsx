@@ -18,7 +18,7 @@ export default function Index() {
       </p>
       <p className="my-4">
         I sometimes write about my learnings and thoughts on my{" "}
-        <Link prefetch="render" to="blog" className="font-semibold underline">blog</Link>.
+        <Link prefetch="intent" to="blog" className="font-semibold underline">blog</Link>.
       </p>
     </div>
   );
