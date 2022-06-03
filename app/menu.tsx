@@ -8,7 +8,7 @@ export default function Menu() {
       <Link to="/" className={menuStyle}>
         Home
       </Link>
-      <Link to="blog" className={menuStyle}>
+      <Link prefetch="render" to="blog" className={menuStyle}>
         Blog
       </Link>
       <Link to="contact" className={menuStyle}>
