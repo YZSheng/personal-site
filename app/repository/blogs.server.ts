@@ -6,6 +6,7 @@ export const findAllBlogPosts = async (): Promise<
 > => {
   return prisma.blog.findMany({
     select: { id: true, slug: true, title: true },
+    orderBy: { created_at: "desc" },
   });
 };
 
