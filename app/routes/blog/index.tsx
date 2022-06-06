@@ -1,5 +1,5 @@
 import { Blog } from "@prisma/client";
-import { json, LoaderFunction } from "@remix-run/node";
+import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { getRecentBlogTitles } from "~/services/blogs.server";
 
@@ -8,6 +8,12 @@ type LoaderData = { blogs: Pick<Blog, "id" | "slug" | "title">[] };
 export const loader: LoaderFunction = async () => {
   const blogs = await getRecentBlogTitles();
   return json<LoaderData>({ blogs });
+};
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "Blog posts by Yunzhou",
+  };
 };
 
 export default function Blog() {

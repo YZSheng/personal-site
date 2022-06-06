@@ -1,13 +1,15 @@
+import { Blog } from "@prisma/client";
 import invariant from "tiny-invariant";
 import { findAllBlogPosts, findOneBlogPost } from "~/repository/blogs.server";
 import { parseMarkdownWithHighlight } from "~/utils/markdown.server";
 
-type HTMLString = string;
-
-export const getParsedBlogById = async (slug: string): Promise<HTMLString> => {
+export const getParsedBlogById = async (slug: string): Promise<Blog> => {
   const response = await findOneBlogPost(slug);
   invariant(response?.content);
-  return parseMarkdownWithHighlight(response.content);
+  return {
+    ...response,
+    content: parseMarkdownWithHighlight(response.content),
+  };
 };
 
 export const getRecentBlogTitles = async () => {
