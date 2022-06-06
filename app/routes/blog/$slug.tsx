@@ -1,5 +1,5 @@
 import { json, LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getParsedBlogById } from "~/services/blogs.server";
 import styles from "highlight.js/styles/atom-one-dark-reasonable.css";
@@ -20,9 +20,12 @@ export default function BlogPost() {
   const { html } = useLoaderData<LoaderData>();
 
   return (
-    <article
-      className="prose prose-slate max-w-full"
-      dangerouslySetInnerHTML={{ __html: html }}
-    ></article>
+    <div>
+      <Link to="/blog" className="absolute -top-8 sm:-top-10 text-gray-600 italic">&#8592; Back to posts</Link>
+      <article
+        className="prose prose-slate max-w-full"
+        dangerouslySetInnerHTML={{ __html: html }}
+      ></article>
+    </div>
   );
 }
