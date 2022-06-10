@@ -13,6 +13,5 @@ body {
 }
 
 .dark body {
-  background: #222222;
-  background-image: none;
+  background: url('/img/ep_naturalblack.png') repeat;
 }
