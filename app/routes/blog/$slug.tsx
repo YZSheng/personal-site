@@ -39,12 +39,12 @@ export default function BlogPost() {
     <div>
       <Link
         to="/blog"
-        className="absolute -top-8 sm:-top-10 text-gray-600 italic"
+        className="absolute -top-8 sm:-top-10 text-gray-600 dark:text-gray-400 italic"
       >
         &#8592; Back to posts
       </Link>
       <article
-        className="prose prose-slate max-w-full"
+        className="prose prose-slate max-w-full dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: blog.content }}
       ></article>
     </div>

@@ -27,7 +27,7 @@ export default function Blog() {
             <Link
               prefetch="intent"
               to={t.slug}
-              className="text-gray-800 underline block mb-2"
+              className="text-gray-800 underline block mb-2 dark:text-gray-300"
             >
               {t.title}
             </Link>

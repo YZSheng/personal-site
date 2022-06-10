@@ -3,7 +3,7 @@ import { Link } from "@remix-run/react";
 export default function Index() {
   return (
     <div>
-      <h1 className="text-2xl font-bold">Hi, I'm Sheng Yunzhou.</h1>
+      <h1 className="text-2xl font-bold ">Hi, I'm Sheng Yunzhou.</h1>
       <p className="my-4">
         Most people call me YZ{" "}
         <span className="italic">
@@ -18,7 +18,10 @@ export default function Index() {
       </p>
       <p className="my-4">
         I sometimes write about my learnings and thoughts on my{" "}
-        <Link prefetch="intent" to="blog" className="font-semibold underline">blog</Link>.
+        <Link prefetch="intent" to="blog" className="font-semibold underline">
+          blog
+        </Link>
+        .
       </p>
     </div>
   );

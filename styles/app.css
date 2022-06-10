@@ -11,3 +11,8 @@
 body {
   background: url('/img/so-white.png') repeat;
 }
+
+.dark body {
+  background: #222222;
+  background-image: none;
+}

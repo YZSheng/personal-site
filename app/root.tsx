@@ -8,10 +8,10 @@ import {
   ScrollRestoration,
   useLocation,
 } from "@remix-run/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import * as gtag from "~/utils/ga.client";
 import styles from "./styles/app.css";
 import WrappedWithNav from "./wrappedWithNav";
-import * as gtag from "~/utils/ga.client";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -27,6 +27,7 @@ const gaTrackingId = "G-B9LK0EFDSB";
 
 export default function App() {
   const location = useLocation();
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     if (gaTrackingId?.length) {
@@ -35,7 +36,7 @@ export default function App() {
   }, [location, gaTrackingId]);
 
   return (
-    <html lang="en">
+    <html lang="en" className={dark ? "dark" : ""}>
       <head>
         <Meta />
         <Links />
@@ -64,7 +65,7 @@ export default function App() {
             />
           </>
         )}
-        <WrappedWithNav>
+        <WrappedWithNav dark={dark} toggleDarkMode={() => setDark(!dark)}>
           <Outlet />
         </WrappedWithNav>
         <ScrollRestoration />
