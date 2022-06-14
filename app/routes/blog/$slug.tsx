@@ -35,7 +35,14 @@ export function headers() {
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.slug, `params.slug is required`);
   const blog = await getParsedBlogById(params.slug);
-  return json<LoaderData>({ blog });
+  return json<LoaderData>(
+    { blog },
+    {
+      headers: {
+        "cache-control": "public, max-age=3600",
+      },
+    }
+  );
 };
 
 export default function BlogPost() {

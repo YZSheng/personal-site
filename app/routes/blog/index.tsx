@@ -7,7 +7,14 @@ type LoaderData = { blogs: Pick<Blog, "id" | "slug" | "title">[] };
 
 export const loader: LoaderFunction = async () => {
   const blogs = await getRecentBlogTitles();
-  return json<LoaderData>({ blogs });
+  return json<LoaderData>(
+    { blogs },
+    {
+      headers: {
+        "cache-control": "public, max-age=3600",
+      },
+    }
+  );
 };
 
 export const meta: MetaFunction = () => {
