@@ -10,7 +10,7 @@
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
     "start": "remix-serve build",
     "test": "vitest",
-    "test:watch": "vitest watch",
+    "test:ci": "vitest --run",
     "typecheck": "tsc -b"
   },
   "dependencies": {
