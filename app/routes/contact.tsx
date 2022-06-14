@@ -8,7 +8,7 @@ export const meta: MetaFunction = () => {
 
 export function headers() {
   return {
-    "Cache-Control": "max-age=86400",
+    "Cache-Control": "public, max-age=86400",
   };
 }
 
