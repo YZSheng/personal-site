@@ -29,14 +29,14 @@ export function headers() {
   };
 }
 
-export default function Blog() {
+export default function BlogPage() {
   const { blogs } = useLoaderData<LoaderData>();
   return (
     <main>
       <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
       <ul>
         {blogs.map((t) => (
-          <li key={t.id}>
+          <li key={t.id} role="blog-post-link">
             <Link
               prefetch="intent"
               to={t.slug}
