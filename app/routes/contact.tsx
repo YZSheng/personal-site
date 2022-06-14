@@ -6,6 +6,12 @@ export const meta: MetaFunction = () => {
   };
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "max-age=86400",
+  };
+}
+
 export default function Contact() {
   return (
     <div>

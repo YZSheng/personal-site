@@ -16,6 +16,12 @@ export const meta: MetaFunction = () => {
   };
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600",
+  };
+}
+
 export default function Blog() {
   const { blogs } = useLoaderData<LoaderData>();
   return (

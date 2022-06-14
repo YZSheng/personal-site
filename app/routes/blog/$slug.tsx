@@ -26,6 +26,12 @@ export const meta: MetaFunction = ({
   };
 };
 
+export function headers() {
+  return {
+    "Cache-Control": "max-age=3600",
+  };
+}
+
 export const loader: LoaderFunction = async ({ params }) => {
   invariant(params.slug, `params.slug is required`);
   const blog = await getParsedBlogById(params.slug);
