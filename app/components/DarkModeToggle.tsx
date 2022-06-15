@@ -13,6 +13,7 @@ const DarkModeToggle = ({
       viewBox="0 0 24 24"
       stroke="currentColor"
       strokeWidth={2}
+      role="light-icon"
     >
       <path
         strokeLinecap="round"
@@ -27,6 +28,7 @@ const DarkModeToggle = ({
       className="h-5 w-5"
       viewBox="0 0 20 20"
       fill="currentColor"
+      role="dark-icon"
     >
       <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
     </svg>
@@ -34,6 +36,7 @@ const DarkModeToggle = ({
   return (
     <button
       className="absolute -top-8 sm:-top-10 right-0"
+      role="dark-mode-toggle"
       onClick={toggleDarkMode}
     >
       {dark ? lightIcon : darkIcon}

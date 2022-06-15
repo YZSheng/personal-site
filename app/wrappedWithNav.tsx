@@ -1,4 +1,4 @@
-import DarkModeToggle from "./DarkModeToggle";
+import DarkModeToggle from "./components/DarkModeToggle";
 import Menu from "./menu";
 
 const WrappedWithNav = ({
