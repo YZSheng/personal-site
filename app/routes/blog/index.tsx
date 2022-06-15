@@ -1,6 +1,7 @@
 import { Blog } from "@prisma/client";
 import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
+import BlogList from "~/components/BlogList";
 import { getRecentBlogTitles } from "~/services/blogs.server";
 
 type LoaderData = { blogs: Pick<Blog, "id" | "slug" | "title">[] };
@@ -31,22 +32,5 @@ export function headers() {
 
 export default function BlogPage() {
   const { blogs } = useLoaderData<LoaderData>();
-  return (
-    <main>
-      <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
-      <ul>
-        {blogs.map((t) => (
-          <li key={t.id} role="blog-post-link">
-            <Link
-              prefetch="intent"
-              to={t.slug}
-              className="text-gray-800 underline block mb-2 dark:text-gray-300"
-            >
-              {t.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </main>
-  );
+  return <BlogList blogs={blogs} />;
 }
