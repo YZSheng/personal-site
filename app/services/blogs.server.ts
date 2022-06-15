@@ -1,4 +1,4 @@
-import { Blog } from "@prisma/client";
+import type { Blog } from "@prisma/client";
 import invariant from "tiny-invariant";
 import { findAllBlogPosts, findOneBlogPost } from "~/repository/blogs.server";
 import { parseMarkdownWithHighlight } from "~/utils/markdown.server";

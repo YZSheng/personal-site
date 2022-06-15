@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect, vi } from "vitest";
 import { MemoryRouter } from "react-router";
 import { aMockBlog } from "test/data";
+import { describe, expect, it } from "vitest";
 import BlogList from "./BlogList";
 
 describe("BlogList", () => {
@@ -14,7 +14,7 @@ describe("BlogList", () => {
       </MemoryRouter>
     );
     expect(screen.getByText("Recent Posts")).toBeTruthy();
-    expect(screen.getAllByRole("blog-post-link")).toHaveLength(blogs.length);
+    expect(screen.getAllByRole("link")).toHaveLength(blogs.length);
     expect(screen.getByText(blogs[0].title)).toBeTruthy();
     expect(screen.getByText(blogs[1].title)).toBeTruthy();
   });

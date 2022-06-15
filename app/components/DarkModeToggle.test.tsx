@@ -9,15 +9,15 @@ describe("DarkModeToggle", () => {
   beforeEach(() => {
     onClick.mockClear();
   });
-  
+
   it("should render dark icon", async () => {
-    const { findByRole } = render(
+    const { findByTestId } = render(
       <DarkModeToggle dark={dark} toggleDarkMode={onClick} />
     );
-    const darkIcon = await findByRole("dark-icon");
+    const darkIcon = await findByTestId("dark-icon");
     expect(darkIcon).toBeTruthy();
     try {
-      await findByRole("light-icon");
+      await findByTestId("light-icon");
       throw new Error("should not find light icon");
     } catch {}
   });
@@ -26,7 +26,7 @@ describe("DarkModeToggle", () => {
     const { findByRole } = render(
       <DarkModeToggle dark={dark} toggleDarkMode={onClick} />
     );
-    const toggle = await findByRole("dark-mode-toggle");
+    const toggle = await findByRole("button");
     fireEvent.click(toggle);
     expect(onClick).toHaveBeenCalled();
   });

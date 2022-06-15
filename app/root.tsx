@@ -24,17 +24,14 @@ export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
 
-const gaTrackingId = "G-B9LK0EFDSB";
-
 export default function App() {
   const location = useLocation();
   const [dark, setDark] = useState(false);
+  const gaTrackingId = "G-B9LK0EFDSB";
 
   useEffect(() => {
-    if (gaTrackingId?.length) {
-      gtag.pageview(location.pathname, gaTrackingId);
-    }
-  }, [location, gaTrackingId]);
+    gtag.pageview(location.pathname, gaTrackingId);
+  }, [location]);
 
   return (
     <html lang="en" className={dark ? "dark" : ""}>

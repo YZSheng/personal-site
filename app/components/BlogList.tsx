@@ -9,7 +9,7 @@ const BlogList = ({
     <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
     <ul>
       {blogs.map((t) => (
-        <li key={t.id} role="blog-post-link">
+        <li key={t.id}>
           <Link
             prefetch="intent"
             to={t.slug}

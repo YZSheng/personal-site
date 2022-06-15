@@ -18,6 +18,7 @@ export default function Menu() {
         href="https://github.com/YZSheng"
         target="_blank"
         className={menuStyle}
+        rel="noreferrer"
       >
         Github
       </a>
@@ -25,6 +26,7 @@ export default function Menu() {
         href="https://www.goodreads.com/review/list/2200405"
         target="_blank"
         className={menuStyle}
+        rel="noreferrer"
       >
         Reading
       </a>

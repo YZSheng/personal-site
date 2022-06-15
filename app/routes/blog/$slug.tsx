@@ -1,9 +1,10 @@
-import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getParsedBlogById } from "~/services/blogs.server";
 import styles from "highlight.js/styles/atom-one-dark-reasonable.css";
-import { Blog } from "@prisma/client";
+import type { Blog } from "@prisma/client";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];

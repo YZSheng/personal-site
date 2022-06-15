@@ -1,5 +1,6 @@
-import { Blog } from "@prisma/client";
-import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { Blog } from "@prisma/client";
+import { json } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import BlogList from "~/components/BlogList";
 import { getRecentBlogTitles } from "~/services/blogs.server";
