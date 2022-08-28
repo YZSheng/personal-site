@@ -1116,11 +1116,25 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 body {
-  background: url('/img/so-white.png') repeat;
+  background: url("/img/so-white.png") repeat;
 }
 
 .dark body {
-  background: url('/img/ep_naturalblack.png') repeat;
+  background: url("/img/ep_naturalblack.png") repeat;
+}
+
+.prose h1 {
+  background: #5b5b5b;
+  background: linear-gradient(to right, #5b5b5b 0%, #000000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .prose h1 {
+  background: #b5b5b5;
+  background: linear-gradient(to right, #b5b5b5 0%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hover\:text-gray-800:hover {
