@@ -5,7 +5,7 @@ import { useLoaderData } from "@remix-run/react";
 import BlogList from "~/components/BlogList";
 import { getRecentBlogTitles } from "~/services/blogs.server";
 
-type LoaderData = { blogs: Pick<Blog, "id" | "slug" | "title">[] };
+type LoaderData = { blogs: Blog[] };
 
 export const loader: LoaderFunction = async () => {
   const blogs = await getRecentBlogTitles();

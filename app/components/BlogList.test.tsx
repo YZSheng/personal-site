@@ -15,7 +15,7 @@ describe("BlogList", () => {
     );
     expect(screen.getByText("Recent Posts")).toBeTruthy();
     expect(screen.getAllByRole("link")).toHaveLength(blogs.length);
-    expect(screen.getByText(blogs[0].title)).toBeTruthy();
-    expect(screen.getByText(blogs[1].title)).toBeTruthy();
+    expect(screen.getByText(blogs[0].title, { exact: false })).toBeTruthy();
+    expect(screen.getByText(blogs[1].title, { exact: false })).toBeTruthy();
   });
 });
