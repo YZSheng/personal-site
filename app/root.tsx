@@ -13,12 +13,12 @@ import * as gtag from "~/utils/ga.client";
 import styles from "./styles/app.css";
 import WrappedWithNav from "./wrappedWithNav";
 
-export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "Yunzhou's Personal Site",
-  description: "Welcome to Yunzhou's site",
-  viewport: "width=device-width,initial-scale=1",
-});
+export const meta: MetaFunction = () => [
+  { charSet: "utf-8" },
+  { title: "Yunzhou's Personal Site" },
+  { name: "description", content: "Welcome to Yunzhou's site" },
+  { name: "viewport", content: "width=device-width,initial-scale=1" },
+];
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];

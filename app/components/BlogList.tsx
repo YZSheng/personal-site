@@ -1,8 +1,14 @@
-import type { Blog } from "@prisma/client";
 import { Link } from "@remix-run/react";
 import { displayTimestamp } from "~/utils/clock";
 
-const BlogList = ({ blogs }: { blogs: Blog[] }) => (
+type BlogEntry = {
+  id: string;
+  slug: string;
+  title: string;
+  created_at: Date | string;
+};
+
+const BlogList = ({ blogs }: { blogs: BlogEntry[] }) => (
   <main>
     <h1 className="text-2xl font-bold mb-8">Recent Posts</h1>
     <ul>

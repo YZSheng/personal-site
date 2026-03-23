@@ -1,42 +1,18 @@
 import { json } from "@remix-run/node";
-import type { LoaderFunction, MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getParsedBlogById } from "~/services/blogs.server";
 import styles from "highlight.js/styles/atom-one-dark-reasonable.css";
-import type { Blog } from "@prisma/client";
 
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
 }
 
-type LoaderData = { blog: Blog };
-
-export const meta: MetaFunction = ({
-  data,
-}: {
-  data: LoaderData | undefined;
-}) => {
-  if (!data) {
-    return {
-      title: "Blog posts by Yunzhou",
-    };
-  }
-  return {
-    title: data.blog.title,
-  };
-};
-
-export function headers() {
-  return {
-    "Cache-Control": "public, max-age=3600",
-  };
-}
-
-export const loader: LoaderFunction = async ({ params }) => {
+export const loader = async ({ params }: { params: { slug?: string } }) => {
   invariant(params.slug, `params.slug is required`);
   const blog = await getParsedBlogById(params.slug);
-  return json<LoaderData>(
+  return json(
     { blog },
     {
       headers: {
@@ -46,8 +22,21 @@ export const loader: LoaderFunction = async ({ params }) => {
   );
 };
 
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return [{ title: "Blog posts by Yunzhou" }];
+  }
+  return [{ title: data.blog.title }];
+};
+
+export function headers() {
+  return {
+    "Cache-Control": "public, max-age=3600",
+  };
+}
+
 export default function BlogPost() {
-  const { blog } = useLoaderData<LoaderData>();
+  const { blog } = useLoaderData<typeof loader>();
 
   return (
     <div>

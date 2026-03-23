@@ -1,12 +1,17 @@
-import { marked } from "marked";
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
+import hljs from "highlight.js";
 
-export const parseMarkdownWithHighlight = (md: string): string => {
-  marked.setOptions({
-    highlight: function (code, lang) {
-      const hljs = require('highlight.js');
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: "hljs language-",
+    highlight(code, lang) {
+      const language = hljs.getLanguage(lang) ? lang : "plaintext";
       return hljs.highlight(code, { language }).value;
     },
-  });
-  return marked.parse(md);
+  })
+);
+
+export const parseMarkdownWithHighlight = (md: string): string => {
+  return marked.parse(md, { async: false });
 };
