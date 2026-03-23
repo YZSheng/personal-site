@@ -11,6 +11,7 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
     "test": "vitest",
+    "postinstall": "prisma generate",
     "typecheck": "tsc -b"
   },
   "dependencies": {
