@@ -312,6 +312,8 @@ export default function TypingPage() {
             <input
               autoFocus
               type="text"
+              autoComplete="off"
+              data-1p-ignore
               value={nameInput}
               onChange={(e) => setNameInput(e.target.value)}
               placeholder="YOUR NAME"
