@@ -8,6 +8,7 @@ export const aMockBlog = (): Blog => ({
   created_at: faker.date.past(),
   modified_at: faker.date.past(),
   content: faker.lorem.paragraphs(),
+  published: true,
 });
 
 export const mockBlogs = [aMockBlog(), aMockBlog()];

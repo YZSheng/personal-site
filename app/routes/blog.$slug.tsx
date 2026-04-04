@@ -11,7 +11,7 @@ export function links() {
 
 export const loader = async ({ params }: { params: { slug?: string } }) => {
   invariant(params.slug, `params.slug is required`);
-  const blog = await getParsedBlogById(params.slug);
+  const blog = await getParsedBlogById(params.slug); // throws 404 if not found or unpublished
   return json(
     { blog },
     {

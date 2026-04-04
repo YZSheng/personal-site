@@ -13,4 +13,5 @@ model Blog {
   title       String   @db.VarChar
   content     String
   slug        String   @unique @db.VarChar
+  published   Boolean  @default(false)
 }
