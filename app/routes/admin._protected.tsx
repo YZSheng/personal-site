@@ -1,5 +1,5 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
-import { Form, Link, Outlet, useLoaderData } from "@remix-run/react";
+import { Form, Link, Outlet } from "@remix-run/react";
 import { requireAdminSession } from "~/session.server";
 
 export async function loader({ request }: LoaderFunctionArgs) {
